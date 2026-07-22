@@ -28,7 +28,8 @@ def decode_token(token):
 
 
 def current_user():
-    if "user" not in g:
+    if "user" not in g:#so this g.user check is done for a small time interval like when we call a function instead of asking again and agin aabout the user details we save it into the g.user fopr a small span of time 
+        #for example if you go to the restraunt and order so the waiter(g object) stores your name and bartender the cashier the cheif keeps your name and uses it instead of coming to your place again and again to ask your user name or other details onec the food is delivered the http request is over.
         g.user = None
         auth = request.headers.get("Authorization", "")
         if auth.startswith("Bearer "):
